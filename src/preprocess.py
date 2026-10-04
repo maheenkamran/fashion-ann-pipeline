@@ -1,3 +1,4 @@
+import os
 import yaml
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -17,6 +18,7 @@ x_train,x_val,y_train,y_val=train_test_split(
     random_state=params["seed"],
     stratify=d["y_train"]
 )
+os.makedirs("data/processed",exist_ok=True)
 
 np.savez_compressed("data/processed/fashion_processed.npz",
                     x_train=x_train, y_train=y_train,
