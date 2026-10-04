@@ -8,8 +8,8 @@ with open("params.yaml","r") as f:
 
 d=np.load("data/raw/fashion_raw.npz")
     
-x_train=d["x_train"].astype("float32")/255.0
-x_test=d["x_test"].astype("float32")/255.0
+x_train = d["x_train"].astype("float32") / 127.5 - 1.0
+x_test = d["x_test"].astype("float32") / 127.5 - 1.0
 #normalize by dividing by 255, so range is in 0-255
 
 x_train,x_val,y_train,y_val=train_test_split(
